@@ -5,7 +5,15 @@ const messageEl = document.querySelector('.feedback-form textarea');
 
 const STORAGE_KEY = 'feedback-form-state';
 
-const userData = {};
+const userData = {
+  message: null,
+  email: null,
+};
+
+function userDataStorage(e) {
+  userData.message = emailEl.elements.message.value;
+  userData.email = emailEl.elements.email.value;
+}
 
 emailEl.addEventListener('submit', onFormSubmit);
 messageEl.addEventListener('input', throttle(onTextareaInput, 500));
